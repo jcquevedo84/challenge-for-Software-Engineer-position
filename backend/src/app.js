@@ -4,7 +4,8 @@ const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 
 const userRouter = require('./routes/user.routes');
-const tripRouter = require('./routes/trip.routes')
+const tripRouter = require('./routes/trip.routes');
+const authRouter = require('./routes/auth.routes');
 
 const apiDb = require('./repositories/api.repository');
 apiDb.connect(); 
@@ -37,7 +38,8 @@ app.use((req, res, next) => {
 
 // API requests routing
 app.use('/', userRouter);
-app.use('/',tripRouter)
+app.use('/',tripRouter);
+app.use('/',authRouter);
 
 // Catches unexpected errors
 app.use((req, res, next) => {
