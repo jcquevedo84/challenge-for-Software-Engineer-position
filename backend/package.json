@@ -1,0 +1,35 @@
+{
+    "name": "challenge-api",
+    "version": "1.0.0",
+    "description": "Challenge API  with noje js and mongo db",
+    "main": "src/index.js",
+    "scripts": {
+      "start": "node src/index.js",
+      "dev": "node src/index.js",
+      "local": "nodemon --inspect=0.0.0.0:9229 src/index.js"
+    },
+    "keywords": [
+      "nodejs",
+      "express",
+      "rest",
+      "api",
+      "mongodb"
+    ],
+    "author": "Juan Carlos Rodriguez",
+    "license": "ISC",
+    "dependencies": {
+      "body-parser": "^1.18.3",
+      "cors": "^2.8.5",
+      "express": "^4.17.1",
+      "mongoose": "^5.8.10",
+      "express-jwt": "^5.3.3",
+      "jsonwebtoken": "^8.5.1"
+    },
+    "devDependencies": {
+      "nodemon": "^1.18.10",
+      "jest": "^24.7.1",
+      "supertest": "^4.0.2",
+      "eslint": "^6.0.1"
+    }
+  }
+  

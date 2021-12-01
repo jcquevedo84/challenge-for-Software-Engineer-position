@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  mongodb:
+    image: mongo:5.0.2
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root123.
+    ports:
+      - "20017:20017"
+    volumes:
+      - db:/data/db
+    container_name: mongo_db
+  challengeapi:
+    environment:
+      DB_HOST: mongodb
+      DB_USERNAME: root
+      DB_PASSWORD: root123.
+      DB_DATABASE: challenge_db
+      DB_PORT: 20017
+    depends_on:
+      - mongodb
+    build:
+      context: .
+    volumes:
+      - ./src:/app/src
+      - ./setup:/setup
+    container_name: challenge_api
+    ports:
+      - "8080:8080"
+    entrypoint: []
+    command: ["/setup/entry-point-local.sh"]
+networks:
+  default:
+    name: challenge
+volumes:
+  db:
