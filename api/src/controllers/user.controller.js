@@ -3,10 +3,25 @@ const bcrypt = require('bcrypt');
 const validation = require("../utils/validation.utils");
 const error = require("../utils/response.utils");
 const { generateUuid }   = require('../utils/uuid.utils');
+const jwt = require("../utils/jwt.utils")
 
 class UserController {
 
     static async postUser(req, res) {
+        
+        var inputData = req.body 
+
+        if(req.headers.authorization) {
+            const token = req.headers.authorization.split(' ')[1];
+            console.log("token: "+token);
+            
+                console.log("token: "+token)
+                if(!jwt.validateToken(token,"postUser",inputData.rol)){
+                    const response = new error.Unauthorized('user can not call this endpoint');
+                    console.log('error:%s', JSON.stringify(response.get()));
+                    return res.status(401).json(response);
+                }
+        }
 
         //TODO: validate password
         console.log('Call %s %s ', req.method, req.url);

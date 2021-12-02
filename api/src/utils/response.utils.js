@@ -68,6 +68,13 @@ class InternalServerError extends ApiError {
   }
 }
 
+class Unauthorized extends ApiError {
+  constructor(message) {
+      super(message);
+      this.code = 401;
+  }
+}
+
 module.exports = { 
   Success,    
   PartialError,
@@ -75,4 +82,5 @@ module.exports = {
   NotFoundError,
   ConflictError,
   NotMatchError,
-  InternalServerError }
+  InternalServerError,
+  Unauthorized }
