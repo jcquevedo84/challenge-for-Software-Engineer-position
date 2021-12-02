@@ -1,5 +1,5 @@
 class AuthController {
-s
+
     static async postSignin(req, res) {
 
         console.log('Call %s %s ', req.method, req.url);
@@ -13,4 +13,4 @@ s
     }
 }
 
-module.exports = UserController;
+module.exports = AuthController;

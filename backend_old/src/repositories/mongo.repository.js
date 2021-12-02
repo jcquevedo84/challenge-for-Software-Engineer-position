@@ -12,12 +12,17 @@ class MongoRepository {
       }
 
       connect() {
-        
-        const url = `mongodb://${this.user}:${this.pass}@${this.host}:${this.port}/${this.name}`;
-          
+        //mongodb://root:example@product-service-db:27017/Products?authSource=admin
+        const url = `mongodb://${this.user}:${this.pass}@${this.host}:${this.port}/${this.name}?authSource=admin`;
+       
+        //const url = "mongodb://challengedb:27017/challenge"
+        //const url = "mongodb://root:root@challengedb:27017/challenge?authSource=admin"
+        console.log("url: "+url)
         this.pool = mongo.connect(url, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
+            useNewUrlParser: true, 
+            useUnifiedTopology: true 
+            //useCreateIndex: true, 
+            //useFindAndModify: false
         }).then(() => {
             console.log("Connected to the database!");
         })

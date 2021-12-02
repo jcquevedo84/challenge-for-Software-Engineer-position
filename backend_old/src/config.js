@@ -1,9 +1,9 @@
 // Check for mandatory environment variables
 const required = [
     'DB_HOST',
-    'DB_USERNAME',
+    'DB_USER',
     'DB_PASSWORD',
-    'DB_DATABASE',
+    'DB_NAME',
     'DB_PORT'
   ];
 
@@ -17,9 +17,9 @@ const required = [
     // database
     database: {
       host: process.env.DB_HOST,
-      username: process.env.DB_USERNAME,
+      username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
-      name: process.env.DB_DATABASE,
+      name: process.env.DB_NAME,
       port: process.env.DB_PORT
     }
   };
