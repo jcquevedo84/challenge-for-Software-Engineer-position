@@ -21,7 +21,12 @@ const required = [
       password: process.env.DB_PASSWORD,
       name: process.env.DB_NAME,
       port: process.env.DB_PORT
+    },
+    token: {
+      secretKey: "challengeSecretKey",
+      expiration: "7d"
     }
+    
   };
   
   module.exports = config;

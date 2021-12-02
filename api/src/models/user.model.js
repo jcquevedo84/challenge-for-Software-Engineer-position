@@ -10,12 +10,8 @@ const User = mongo.model(
     lastname: String,
     sexo: String,
     status: Boolean,
-    roles: [
-      {
-        type: mongo.Schema.Types.ObjectId,
-        ref: "Role"
-      }
-    ]
+    rol: String,
+    uuid: String
   })
 );
 

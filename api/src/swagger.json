@@ -1,0 +1,217 @@
+{
+    "openapi": "3.0.0",
+    "servers": [
+      {
+        "url": "http://example.com",
+        "description": "",
+        "variables": {}
+      }
+    ],
+    "info": {
+      "version": "aa6a9ff1-052f-4deb-b68c-4b06dabe0335",
+      "title": "challenger-for-software-engeneer-position",
+      "description": "",
+      "termsOfService": "",
+      "contact": {},
+      "license": {
+        "name": ""
+      }
+    },
+    "paths": {
+      "/user": {
+        "post": {
+          "summary": "Create user",
+          "description": "Create user",
+          "operationId": "Createuser",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "requestBody": {
+            "description": "Create user",
+            "required": true,
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "example": {
+                    "username": "jcquevedo84",
+                    "email": "jcquevedo84@gmail.com",
+                    "password": "1234",
+                    "name": "Juan Carlos",
+                    "lastname": "Rodriguez",
+                    "sexo": "m",
+                    "rol": "cliente"
+                  }
+                },
+                "example": "{\n    \"username\": \"jcquevedo84\",\n    \"email\": \"jcquevedo84@gmail.com\",\n    \"password\": \"1234\",\n    \"name\": \"Juan Carlos\",\n    \"lastname\": \"Rodriguez\",\n    \"sexo\": \"m\",\n    \"rol\": \"cliente\"\n}"
+              }
+            }
+          },
+          "tags": [
+            "user"
+          ]
+        },
+        "get": {
+          "summary": "Get user",
+          "description": "Get user",
+          "operationId": "Getuser",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "tags": [
+            "user"
+          ]
+        }
+      },
+      "/user/{id}": {
+        "put": {
+          "summary": "Update user",
+          "description": "Update user",
+          "operationId": "Updateuser",
+          "parameters": [
+            {
+              "$ref": "#/components/parameters/id"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "tags": [
+            "user"
+          ]
+        },
+        "get": {
+          "summary": "Get user by id",
+          "description": "Get user by id",
+          "operationId": "Getuserbyid",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "style": "simple",
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "tags": [
+            "user"
+          ]
+        },
+        "delete": {
+          "summary": "Delete user",
+          "description": "Delete user",
+          "operationId": "Deleteuser",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "style": "simple",
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "tags": [
+            "user"
+          ]
+        }
+      },
+      "/trip": {
+        "post": {
+          "summary": "Create trip",
+          "description": "Create trip",
+          "operationId": "Createtrip",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "tags": [
+            "trip"
+          ]
+        },
+        "get": {
+          "summary": "Get trip",
+          "description": "Get trip",
+          "operationId": "Gettrip",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "tags": [
+            "trip"
+          ]
+        }
+      },
+      "/health": {
+        "get": {
+          "summary": "health",
+          "operationId": "health",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "tags": [
+            "trip"
+          ]
+        }
+      }
+    },
+    "components": {
+      "parameters": {
+        "id": {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "style": "simple",
+          "schema": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "security": [],
+    "tags": [],
+    "externalDocs": {
+      "url": "",
+      "description": ""
+    },
+    "warnings": [
+      "Two GET or two POST methods for the same path are not allowed in OpenAPI specification : post{{baseUrl}}/user",
+      "Two GET or two POST methods for the same path are not allowed in OpenAPI specification : get{{baseUrl}}/trip"
+    ]
+  }

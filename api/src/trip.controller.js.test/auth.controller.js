@@ -17,13 +17,13 @@ class AuthController {
 
         if(inputData.username == "" || inputData.password == "" ){
 
-            const response = new error.BadRequestError("Missing fields");
+            response = error.BadRequestError("some field are mandatory");
             console.log('error:%s', JSON.stringify(response.get()));
             return res.status(response.code).send(response.get());
         }
         else if(!user){
 
-            const response = new error.NotFoundError("user not found");
+            response = error.NotFoundError("user not found");
             console.log('error:%s', JSON.stringify(response.get()));
             return res.status(response.code).send(response.get());
         }
@@ -48,7 +48,7 @@ class AuthController {
                 }
                 else{
 
-                    const response = new error.NotMatchError("Credential invalid");
+                    response = error.NotMatchError("Credential invalid");
                     console.log('error:%s', JSON.stringify(response.get()));
                     return res.status(response.code).send(response.get());
                     
