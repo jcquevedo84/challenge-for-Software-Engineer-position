@@ -25,6 +25,11 @@ const required = [
     token: {
       secretKey: "challengeSecretKey",
       expiration: "7d"
+    },
+    roles:{
+      Admin: 'Administrador',
+      User: 'Cliente',
+      Adviser:'Asesor'
     }
     
   };

@@ -27,7 +27,8 @@
     "express-jwt": "^5.3.3",
     "jsonwebtoken": "^8.5.1",
     "xid-js": "^1.0.1",
-    "swagger-ui-express": "^4.0.2"
+    "swagger-ui-express": "^4.0.2",
+    "mongoose-unique-validator": "2.0.3"
   },
   "devDependencies": {
     "nodemon": "^1.18.10",

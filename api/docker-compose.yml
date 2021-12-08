@@ -3,7 +3,6 @@ version: "3.8"
 services:
   challengedb:
     image: mongo:5.0.2
-    restart: unless-stopped
     env_file: ./.env
     environment:
       - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
@@ -18,7 +17,6 @@ services:
       - challengedb
     build:
       context: .
-    restart: unless-stopped
     env_file: ./.env
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
@@ -34,8 +32,10 @@ services:
     container_name: container_challenge_api
     entrypoint: []
     command: ["/setup/entry-point-local.sh"]
-    stdin_open: true
-    tty: true
+  mongo-seed:
+    build: ./mongo-seed
+    links:
+      - challengedb
 networks:
   default:
     name: challenge

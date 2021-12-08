@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const validation = require("../utils/validation.utils");
 const error = require("../utils/response.utils");
 const jwt = require("../utils/jwt.utils")
-
+const config = require('../config');
 
 class AuthController {
 
@@ -31,7 +31,6 @@ class AuthController {
             try{
 
                 var isEqual= await bcrypt.compare(inputData.password, user.password)
-    
                 if((isEqual)){
                     
                     const accessToken = jwt.generateToken(user.rol,user.username,user.uuid)
@@ -40,7 +39,9 @@ class AuthController {
                         name: user.name,
                         lastName: user.lastName,
                         email: user.email,
-                        username: user.username
+                        username: user.username,
+                        access_token: accessToken,
+                        expires_in: config.token.expiration
                     }
                    
                     res.setHeader('authid',accessToken);

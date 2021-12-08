@@ -1,18 +1,36 @@
 const mongo = require("mongoose");
+const uniqueValidator = require('mongoose-unique-validator')
 
-const User = mongo.model(
-  "User",
-  new mongo.Schema({
-    username: String,
-    email: String,
-    password: String,
-    name: String,
-    lastname: String,
-    sexo: String,
+const userSchema = new mongo.Schema({
+    username: {
+      type: String,
+      unique: true,
+      require: true,
+    },
+    email: { type: String, default: '' },
+    password: { type: String, default: '' },
+    name: { type: String, default: '' },
+    lastname: { type: String, default: '' },
+    sexo: { type: String, default: '' },
     status: Boolean,
-    rol: String,
+    rol: {
+      type: String,
+      require: true,
+    },
     uuid: String
-  })
-);
+  });
+
+userSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+      returnedObject.id = returnedObject._id
+      delete returnedObject._id
+      delete returnedObject.__v
+      delete returnedObject.password
+  }
+})
+
+userSchema.plugin(uniqueValidator)
+
+const User = mongo.model('User', userSchema)
 
 module.exports = User;

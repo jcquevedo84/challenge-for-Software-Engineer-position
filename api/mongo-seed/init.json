@@ -1,0 +1,35 @@
+[
+    {
+        "username": "clientetest1",
+        "email": "clientetest@gmail.com",
+        "password": "$2b$08$/gu6yMLpyghtI2GSClySaOYykOpH3sqqJdqFW0gLR1KQp8ioRgY6K",
+        "name": "Name CLient",
+        "lastname": "Last name cliente",
+        "sexo": "m",
+        "status": true,
+        "rol": "Cliente",
+        "uuid": "2eb7c3ea-969c-4297-a22b-fa9f88293654"
+    },
+    {
+        "username": "asesortest1",
+        "email": "asesortest@gmail.com",
+        "password": "$2b$08$/gu6yMLpyghtI2GSClySaOYykOpH3sqqJdqFW0gLR1KQp8ioRgY6K",
+        "name": "Name asesor",
+        "lastname": "Last name asesor",
+        "sexo": "m",
+        "status": true,
+        "rol": "Asesor",
+        "uuid": "4e4494d8-fc52-4a49-864a-4a5a80b1e74b"
+    },
+    {
+        "username": "admintest1",
+        "email": "admintest@gmail.com",
+        "password": "$2b$08$/gu6yMLpyghtI2GSClySaOYykOpH3sqqJdqFW0gLR1KQp8ioRgY6K",
+        "name": "Name Admin",
+        "lastname": "Last name admin",
+        "sexo": "m",
+        "status": true,
+        "rol": "Administrador",
+        "uuid": "56c37096-3155-4a10-b063-ff586ec872d8"
+    }
+  ]
